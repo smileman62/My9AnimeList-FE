@@ -1,29 +1,44 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
+import { useI18n } from "@/components/i18n/i18n-provider";
+import type { AppLocale } from "@/shared/i18n/constants";
 
 export type LocaleCode = "KR" | "EN";
+
+const BUTTON_TO_LOCALE: Record<LocaleCode, AppLocale> = {
+  KR: "ko",
+  EN: "en",
+};
+
+const LOCALE_TO_BUTTON: Record<AppLocale, LocaleCode> = {
+  ko: "KR",
+  en: "EN",
+};
 
 type LanguageSwitcherProps = {
   className?: string;
 };
 
 export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
-  const [locale, setLocale] = useState<LocaleCode>("KR");
+  const { locale, setLocale, t } = useI18n();
+  const activeButton = LOCALE_TO_BUTTON[locale];
 
-  const select = useCallback((next: LocaleCode) => {
-    setLocale(next);
-    // i18n 라우팅 연동 시 여기서 전환 로직을 확장하면 됩니다.
-  }, []);
+  const select = useCallback(
+    (code: LocaleCode) => {
+      setLocale(BUTTON_TO_LOCALE[code]);
+    },
+    [setLocale],
+  );
 
   return (
     <div
       className={`inline-flex rounded-lg border border-zinc-200 bg-zinc-50 p-0.5 dark:border-zinc-700 dark:bg-zinc-900 ${className ?? ""}`}
       role="group"
-      aria-label="언어 선택"
+      aria-label={t("language.label")}
     >
       {(["KR", "EN"] as const).map((code) => {
-        const active = locale === code;
+        const active = activeButton === code;
         return (
           <button
             key={code}

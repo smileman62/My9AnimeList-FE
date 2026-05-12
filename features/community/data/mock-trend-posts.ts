@@ -1,0 +1,147 @@
+import type { TrendPost } from "@/features/community/types/community";
+
+function slots(
+  items: { id: number; title: string; thumb: string }[],
+): TrendPost["animes"] {
+  return items.map((a, i) => ({
+    rankPosition: i + 1,
+    animeId: a.id,
+    title: a.title,
+    thumbnailUrl: a.thumb,
+  }));
+}
+
+export const MOCK_TREND_POSTS: TrendPost[] = [
+  {
+    id: 101,
+    title: "2024년 내 마음속 탑 9",
+    content:
+      "올해 본 작품 중에서도 특히 기억에 남는 9편만 모아봤어요. 액션과 일상물이 섞여 있지만, 전부 캐릭터 매력이 압도적이었습니다. 다음엔 SF만 따로 모아볼까 고민 중이에요.",
+    authorName: "별빛",
+    authorHandle: "@starlight",
+    createdAt: "2026-05-10T14:22:00",
+    likeCount: 428,
+    commentCount: 56,
+    animes: slots([
+      { id: 1, title: "체인소 맨", thumb: "https://picsum.photos/seed/p101-1/320/450" },
+      { id: 2, title: "주술회전", thumb: "https://picsum.photos/seed/p101-2/320/450" },
+      { id: 8, title: "프리렌", thumb: "https://picsum.photos/seed/p101-3/320/450" },
+      { id: 9, title: "봇치 더 록!", thumb: "https://picsum.photos/seed/p101-4/320/450" },
+      { id: 5, title: "귀멸의 칼날", thumb: "https://picsum.photos/seed/p101-5/320/450" },
+      { id: 6, title: "스파이 패밀리", thumb: "https://picsum.photos/seed/p101-6/320/450" },
+      { id: 7, title: "최애의 아이", thumb: "https://picsum.photos/seed/p101-7/320/450" },
+      { id: 10, title: "하이큐!!", thumb: "https://picsum.photos/seed/p101-8/320/450" },
+      { id: 4, title: "진격의 거인", thumb: "https://picsum.photos/seed/p101-9/320/450" },
+    ]),
+  },
+  {
+    id: 102,
+    title: "스포츠 애니만 골랐습니다",
+    content:
+      "땀 냄새 나는 경기 장면이 좋아서 스포츠 계열만 모았어요. 팀워크와 성장 서사가 밥이죠.",
+    authorName: "코트42",
+    authorHandle: "@court42",
+    createdAt: "2026-05-09T09:15:00",
+    likeCount: 312,
+    commentCount: 89,
+    animes: slots([
+      { id: 10, title: "하이큐!!", thumb: "https://picsum.photos/seed/p102-1/320/450" },
+      { id: 21, title: "블루 록", thumb: "https://picsum.photos/seed/p102-2/320/450" },
+      { id: 22, title: "슬램덩크", thumb: "https://picsum.photos/seed/p102-3/320/450" },
+      { id: 23, title: "다이아몬드 A", thumb: "https://picsum.photos/seed/p102-4/320/450" },
+      { id: 24, title: "유리의 꽃", thumb: "https://picsum.photos/seed/p102-5/320/450" },
+      { id: 25, title: "쿠로코 농구", thumb: "https://picsum.photos/seed/p102-6/320/450" },
+      { id: 26, title: "애플시드", thumb: "https://picsum.photos/seed/p102-7/320/450" },
+      { id: 27, title: "캡틴 츠바사", thumb: "https://picsum.photos/seed/p102-8/320/450" },
+      { id: 28, title: "메이저", thumb: "https://picsum.photos/seed/p102-9/320/450" },
+    ]),
+  },
+  {
+    id: 103,
+    title: "90년대 오타쿠 입문작 모음",
+    content: "비디오 대여점 시절 추억이 담긴 라인업입니다.",
+    authorName: "VHS러버",
+    authorHandle: "@vhs",
+    createdAt: "2026-05-08T18:40:00",
+    likeCount: 267,
+    commentCount: 34,
+    animes: slots([
+      { id: 12, title: "에반게리온", thumb: "https://picsum.photos/seed/p103-1/320/450" },
+      { id: 3, title: "원피스", thumb: "https://picsum.photos/seed/p103-2/320/450" },
+      { id: 29, title: "카우보이 비밥", thumb: "https://picsum.photos/seed/p103-3/320/450" },
+      { id: 30, title: "루팡 3세", thumb: "https://picsum.photos/seed/p103-4/320/450" },
+      { id: 31, title: "슬레이어즈", thumb: "https://picsum.photos/seed/p103-5/320/450" },
+      { id: 32, title: "유희왕", thumb: "https://picsum.photos/seed/p103-6/320/450" },
+      { id: 33, title: "포켓몬스터", thumb: "https://picsum.photos/seed/p103-7/320/450" },
+      { id: 34, title: "디지몬", thumb: "https://picsum.photos/seed/p103-8/320/450" },
+      { id: 35, title: "마법소녀 리리컬 나노하", thumb: "https://picsum.photos/seed/p103-9/320/450" },
+    ]),
+  },
+  {
+    id: 104,
+    title: "로맨스만 9개",
+    content: "설렘 포인트 위주로 골랐습니다. 순애보 갑니다.",
+    authorName: "핑크초콜릿",
+    authorHandle: "@pinkchoco",
+    createdAt: "2026-05-07T11:05:00",
+    likeCount: 198,
+    commentCount: 102,
+    animes: slots([
+      { id: 14, title: "토라도라!", thumb: "https://picsum.photos/seed/p104-1/320/450" },
+      { id: 36, title: "호리미야", thumb: "https://picsum.photos/seed/p104-2/320/450" },
+      { id: 37, title: "츠키가키레이", thumb: "https://picsum.photos/seed/p104-3/320/450" },
+      { id: 38, title: "키미니토도케", thumb: "https://picsum.photos/seed/p104-4/320/450" },
+      { id: 39, title: "오레모노가타리", thumb: "https://picsum.photos/seed/p104-5/320/450" },
+      { id: 40, title: "클라나드", thumb: "https://picsum.photos/seed/p104-6/320/450" },
+      { id: 41, title: "바닐라 코스모", thumb: "https://picsum.photos/seed/p104-7/320/450" },
+      { id: 42, title: "월간순정 노자키군", thumb: "https://picsum.photos/seed/p104-8/320/450" },
+      { id: 43, title: "과학급 사랑", thumb: "https://picsum.photos/seed/p104-9/320/450" },
+    ]),
+  },
+  {
+    id: 105,
+    title: "최근에 정주행한 신작 위주",
+    content: "작년~올해에 몰아본 작품들입니다. 속편 나오면 무조건 챙겨요.",
+    authorName: "신작헌터",
+    authorHandle: "@newhunter",
+    createdAt: "2026-05-11T08:30:00",
+    likeCount: 156,
+    commentCount: 12,
+    animes: slots([
+      { id: 7, title: "최애의 아이", thumb: "https://picsum.photos/seed/p105-1/320/450" },
+      { id: 8, title: "프리렌", thumb: "https://picsum.photos/seed/p105-2/320/450" },
+      { id: 1, title: "체인소 맨", thumb: "https://picsum.photos/seed/p105-3/320/450" },
+      { id: 6, title: "스파이 패밀리", thumb: "https://picsum.photos/seed/p105-4/320/450" },
+      { id: 9, title: "봇치 더 록!", thumb: "https://picsum.photos/seed/p105-5/320/450" },
+      { id: 44, title: "던전밥", thumb: "https://picsum.photos/seed/p105-6/320/450" },
+      { id: 45, title: "악역영애", thumb: "https://picsum.photos/seed/p105-7/320/450" },
+      { id: 46, title: "솔로레벨링", thumb: "https://picsum.photos/seed/p105-8/320/450" },
+      { id: 47, title: "윈드 브레이커", thumb: "https://picsum.photos/seed/p105-9/320/450" },
+    ]),
+  },
+  {
+    id: 106,
+    title: "SF 뇌 녹는 애니",
+    content: "설정 덕후 모여라. 세계관이 촘촘한 작품만.",
+    authorName: "네오도쿄",
+    authorHandle: "@neotokyo",
+    createdAt: "2026-05-05T22:10:00",
+    likeCount: 445,
+    commentCount: 67,
+    animes: slots([
+      { id: 12, title: "에반게리온", thumb: "https://picsum.photos/seed/p106-1/320/450" },
+      { id: 13, title: "코드 기어스", thumb: "https://picsum.photos/seed/p106-2/320/450" },
+      { id: 20, title: "소녀 종말 여행", thumb: "https://picsum.photos/seed/p106-3/320/450" },
+      { id: 48, title: "공각기동대", thumb: "https://picsum.photos/seed/p106-4/320/450" },
+      { id: 49, title: "시드", thumb: "https://picsum.photos/seed/p106-5/320/450" },
+      { id: 50, title: "사이코패스", thumb: "https://picsum.photos/seed/p106-6/320/450" },
+      { id: 51, title: "스테인즈 게이트", thumb: "https://picsum.photos/seed/p106-7/320/450" },
+      { id: 52, title: "시간을 달리는 소녀", thumb: "https://picsum.photos/seed/p106-8/320/450" },
+      { id: 53, title: "플라네테스", thumb: "https://picsum.photos/seed/p106-9/320/450" },
+    ]),
+  },
+];
+
+export function getTrendPostById(id: number): TrendPost | undefined {
+  return MOCK_TREND_POSTS.find((p) => p.id === id);
+}
