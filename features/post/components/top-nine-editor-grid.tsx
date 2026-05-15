@@ -66,7 +66,7 @@ export function TopNineEditorGrid() {
           return (
             <div
               key={index}
-              className="relative aspect-square overflow-hidden rounded-2xl border border-dashed border-zinc-300 bg-zinc-50/80 dark:border-zinc-700 dark:bg-zinc-900/40"
+              className="relative aspect-3/5 overflow-hidden rounded-2xl border border-dashed border-zinc-300 bg-zinc-50/80 dark:border-zinc-700 dark:bg-zinc-900/40"
             >
               {filled ? (
                 <>
@@ -76,7 +76,7 @@ export function TopNineEditorGrid() {
                         src={slot.thumbnailUrl}
                         alt=""
                         fill
-                        sizes="(max-width: 640px) 33vw, 180px"
+                        sizes="(max-width: 640px) 33vw, 200px"
                         className="object-cover"
                         unoptimized={
                           !slot.thumbnailUrl.includes("cdn.myanimelist.net")

@@ -16,6 +16,7 @@ export function Providers({ children }: ProvidersProps) {
           queries: {
             retry: 1,
             refetchOnWindowFocus: false,
+            refetchOnReconnect: false,
           },
         },
       }),

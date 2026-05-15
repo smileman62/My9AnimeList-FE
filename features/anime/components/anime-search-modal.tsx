@@ -26,9 +26,11 @@ export function AnimeSearchModal({
   const panelRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [query, setQuery] = useState("");
-  const debouncedQuery = useDebouncedValue(query, 400);
-  const { data, isFetching, isError, error, refetch } =
-    useAnimeSearchQuery(debouncedQuery);
+  const debouncedQuery = useDebouncedValue(query, 550);
+  const { data, isFetching, isError, error, refetch } = useAnimeSearchQuery(
+    debouncedQuery,
+    { enabled: open },
+  );
 
   useEffect(() => {
     if (!open) {
@@ -204,9 +206,6 @@ export function AnimeSearchModal({
                           fill
                           sizes="80px"
                           className="object-cover"
-                          unoptimized={
-                            !anime.thumbnailUrl.includes("cdn.myanimelist.net")
-                          }
                         />
                       ) : (
                         <div className="flex size-full items-center justify-center text-xs text-zinc-400">
